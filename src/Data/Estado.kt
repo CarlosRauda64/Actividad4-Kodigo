@@ -1,3 +1,5 @@
+package Data
+
 enum class Estado {
     PENDIENTE,
     EN_PROGRESO,

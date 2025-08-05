@@ -1,4 +1,6 @@
-public class User implements IUser{
+package Data;
+
+public class User implements IUser {
     private String name;
     private int age;
     private String jobTitle;

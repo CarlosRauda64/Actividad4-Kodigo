@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Project{
+    private int id;
     private String title;
     private IUser user;
     private List<Task> tasks;
@@ -46,5 +47,13 @@ public class Project{
 
     public String getTitle() {
         return title;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

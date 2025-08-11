@@ -1,6 +1,7 @@
 package Model;
 
 public class Task{
+    private int id;
     private String name;
     private Estado estado;
     private IUser user;
@@ -53,5 +54,13 @@ public class Task{
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

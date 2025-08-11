@@ -50,7 +50,7 @@ public class ProjectManager{
         return this.storage.getAll();
     }
 
-    public Project getProjectByTitle(String title){
-        return (Project) this.storage.getByName(title);
+    public Project getProjectById(int id){
+        return (Project) this.storage.getById(id);
     }
 }

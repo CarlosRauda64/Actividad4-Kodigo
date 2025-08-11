@@ -56,11 +56,11 @@ public class TaskManager {
 
     /**
      * Sirve para obtener una tarea por su nombre
-     * @param name
+     * @param id
      * @return Task
      */
-    public Task getTaskByName(String name){
-        return (Task) this.storage.getByName(name);
+    public Task getTaskById(int id){
+        return (Task) this.storage.getById(id);
     }
 
     /**

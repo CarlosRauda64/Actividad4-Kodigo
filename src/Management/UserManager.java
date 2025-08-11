@@ -35,8 +35,8 @@ public class UserManager {
         return this.storage.getAll();
     }
 
-    public User getUserByName(String name){
-        return (User) this.storage.getByName(name);
+    public User getUserById(int id){
+        return (User) this.storage.getById(id);
     }
 
 }

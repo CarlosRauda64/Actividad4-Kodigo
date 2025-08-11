@@ -1,6 +1,7 @@
 package Model;
 
 public class User implements IUser {
+    private int id;
     private String name;
     private int age;
     private String jobTitle;
@@ -39,5 +40,13 @@ public class User implements IUser {
         return "Nombre: " + name +
                 "Edad: " + age +
                 "Puesto: " + jobTitle;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

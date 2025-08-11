@@ -6,9 +6,14 @@ import java.util.ArrayList;
 
 public class UserStorage implements IStorage<User> {
     private List<User> users = new ArrayList<>();
+    private int nextId = 1;
 
     @Override
-    public void add(User user) { users.add(user); }
+    public void add(User user) {
+        user.setId(nextId);
+        this.nextId++;
+        users.add(user);
+    }
 
     @Override
     public List<User> getAll() { return users; }
@@ -17,9 +22,9 @@ public class UserStorage implements IStorage<User> {
     public void delete(User user) { users.remove(user); }
 
     @Override
-    public User getByName(String name){
+    public User getById(int id){
         for(User user : users){
-            if(user.getName().equals(name)){
+            if(user.getId() == id){
                 return user;
             }
         }

@@ -6,9 +6,12 @@ import java.util.List;
 
 public class TaskStorage implements IStorage<Task> {
     private List<Task> tasks = new ArrayList<>();
+    private int nextId = 1;
 
     @Override
     public void add(Task task){
+        task.setId(nextId);
+        this.nextId++;
         tasks.add(task);
     }
 
@@ -23,9 +26,9 @@ public class TaskStorage implements IStorage<Task> {
     }
 
     @Override
-    public Task getByName(String name){
+    public Task getById(int id){
         for (Task task : tasks){
-            if(task.getName().equals(name)){
+            if(task.getId() == id){
                 return task;
             }
         }

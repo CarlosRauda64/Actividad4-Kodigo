@@ -105,6 +105,7 @@ public class Main {
             System.out.println("4. Cambiar estado de Tarea");
             System.out.println("5. Editar Tarea");
             System.out.println("6. Eliminar Tarea");
+            System.out.println("7. Eliminar Usuario a Tarea");
             System.out.println("0. Volver al Menú Principal");
             System.out.print("Seleccione una opción: ");
             try {
@@ -205,6 +206,16 @@ public class Main {
                 eliminationService.removeTask(task);
                 System.out.println("Tarea '" + task.getName() + "' eliminada con éxito.");
                 break;
+            case 7:
+                System.out.print("Id de la tarea a eliminar: ");
+                taskId = scanner.nextInt();
+                scanner.nextLine();
+                task = taskManager.getTaskById(taskId);
+                if (task == null) {
+                    System.out.println("Tarea no encontrada.");
+                    break;
+                }
+                taskManager.unassignUserTask(task);
             case 0:
                 break;
             default:
@@ -301,7 +312,7 @@ public class Main {
             System.out.println("5. Eliminar Proyecto");
             System.out.println("6. Editar Proyecto");
             System.out.println("7. Eliminar Líder a Proyecto");
-            System.out.println("8. Eliminar Tarea as Proyecto");
+            System.out.println("8. Eliminar Tarea a Proyecto");
             System.out.println("0. Volver al Menú Principal");
             System.out.print("Seleccione una opción: ");
             try {
@@ -353,7 +364,7 @@ public class Main {
                 System.out.println("Líder asignado al proyecto '" + project.getTitle() + "' con éxito.");
                 break;
             case 4:
-                System.out.print("Título del proyecto para añadir tarea: ");
+                System.out.print("ID del proyecto para añadir tarea: ");
                 projectId = scanner.nextInt();
                 scanner.nextLine();
                 project = projectManager.getProjectById(projectId);
@@ -405,9 +416,14 @@ public class Main {
                 if (project == null) {
                     System.out.println("Proyecto no encontrado.");
                     break;
+                } else if(project.getUser() == null){
+                    System.out.println("El proyecto no tiene líder asignado");
+                    break;
+
                 }
                 projectManager.removeLeaderToProject(project);
                 System.out.println("Se elimino el líder del proyecto satisfactoriamente");
+                break;
             case 8:
                 System.out.print("ID del proyecto a eliminar la tarea: ");
                 projectId = scanner.nextInt();
@@ -426,17 +442,12 @@ public class Main {
                     System.out.println("\nElegir una tarea asignadas al proyecto");
                 }
 
-                do {
-                    System.out.print("Id de la tarea a añadir: ");
-                    taskId = scanner.nextInt();
-                    scanner.nextLine();
-                    task = taskManager.getTaskById(taskId);
-                    if(!project.getTasks().contains(task)){
-                        System.out.println("No se encontro la tarea en el proyecto, intentalo de nuevo");
-                    }
-                } while(!project.getTasks().contains(task));
+                System.out.print("Id de la tarea a eliminar del proyecto: ");
+                taskId = scanner.nextInt();
+                scanner.nextLine();
+                task = taskManager.getTaskById(taskId);
+
                 projectManager.removeTaskFromProject(project, task);
-                System.out.println("Se elimino la tarea satisfactorimanete del proyecto: " + project.getTitle());
                 break;
 
 

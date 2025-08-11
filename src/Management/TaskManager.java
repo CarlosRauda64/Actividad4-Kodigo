@@ -85,14 +85,14 @@ public class TaskManager {
      * @param task
      * @return Mensaje
      */
-    public String unassignUserTask(Task task){
+    public void unassignUserTask(Task task){
         if(task.getUser() != null){
             String userName = task.getUser().getName();
             task.setUser(null);
-            return "El usuario " + userName + " fue desasignado de la tarea" +
-                    task.getName();
+            System.out.println("El usuario " + userName + " fue desasignado de la tarea" +
+                    task.getName());
         } else{
-            return "La tarea" + task.getName() + "no tiene un usuario asignado";
+            System.out.println("La tarea" + task.getName() + "no tiene un usuario asignado");
         }
     }
 

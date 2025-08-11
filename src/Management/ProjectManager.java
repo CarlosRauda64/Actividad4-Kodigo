@@ -33,13 +33,24 @@ public class ProjectManager{
     }
 
     public void addTaskToProject(Project project, Task task){
-        project.addTask(task);
-        task.setProject(project);
+        if(task.getProject() == null){
+            project.addTask(task);
+            task.setProject(project);
+        } else if(!project.getTasks().contains(task)){
+            System.out.println("Error: La tarea ya está asignada al proyecto '" + task.getProject().getTitle() + "'.");
+        } else {
+            System.out.println("La tarea ya se encuentra en este proyecto.");
+        }
     }
 
     public void removeTaskFromProject(Project project, Task task){
-        project.removeTask(task);
-        task.setProject(null);
+        if(project.getTasks().contains(task)){
+            project.removeTask(task);
+            task.setProject(null);
+            System.out.println("Se elimino la tarea satisfactorimanete del proyecto: " + project.getTitle());
+        } else{
+            System.out.println("No se encontro la tarea en el proyecto, intentalo de nuevo");
+        }
     }
 
     public void deleteProject(Project project){

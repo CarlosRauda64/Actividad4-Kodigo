@@ -1,5 +1,5 @@
-import Data.Estado;
-import Data.Task;
+import Model.Estado;
+import Model.Task;
 import Management.TaskManager;
 import Storage.TaskStorage;
 
@@ -14,6 +14,7 @@ public class Main {
 
         taskManager.createTask("Tarea 1", Estado.PENDIENTE, "Esto es una descripcion");
         taskManager.createTask("Tarea 2", Estado.CANCELADO, "Soy la tarea 2");
+        taskManager.changeTaskStatus(taskManager.getTaskByName("Tarea 1"), Estado.COMPLETADO);
         displayTasks(taskManager.getAllTasks());
     }
 

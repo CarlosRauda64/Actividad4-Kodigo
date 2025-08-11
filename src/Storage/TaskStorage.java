@@ -1,7 +1,6 @@
 package Storage;
-import Data.Task;
-import Storage.IStorage;
 
+import Model.Task;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,5 +20,15 @@ public class TaskStorage implements IStorage<Task> {
     @Override
     public void delete(Task task){
         tasks.remove(task);
+    }
+
+    @Override
+    public Task getByName(String name){
+        for (Task task : tasks){
+            if(task.getName().equals(name)){
+                return task;
+            }
+        }
+        return null;
     }
 }

@@ -1,4 +1,4 @@
-package Data;
+package Model;
 
 public interface IUser {
     String getName();

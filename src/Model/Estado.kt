@@ -1,4 +1,4 @@
-package Data
+package Model
 
 enum class Estado {
     PENDIENTE,

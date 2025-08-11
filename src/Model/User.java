@@ -1,4 +1,4 @@
-package Data;
+package Model;
 
 public class User implements IUser {
     private String name;

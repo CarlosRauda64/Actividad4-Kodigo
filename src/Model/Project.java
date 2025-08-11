@@ -9,8 +9,7 @@ public class Project{
     private IUser user;
     private List<Task> tasks;
 
-    public Project(User user, String title) {
-        this.user = user;
+    public Project(String title) {
         this.title = title;
         this.tasks = new ArrayList<>();
     }

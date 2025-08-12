@@ -1,3 +1,13 @@
+/**
+ * Gestor responsable de la lógica de negocio para la entidad "Tarea".
+ * Se encarga de la creación, edición, asignación, desasignación y cambio de estado de las tareas.
+ *
+ * Esta clase cumple con el Principio de Responsabilidad Única (SRP) al manejar
+ * exclusivamente la lógica de las tareas. Al igual que los otros gestores,
+ * aplica el Principio de Inversión de Dependencias (DIP) al trabajar con la
+ * interfaz IStorage, lo que asegura que la lógica de negocio sea independiente
+ * de la capa de persistencia.
+ */
 package Management;
 
 import Model.Estado;

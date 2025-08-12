@@ -1,3 +1,13 @@
+/**
+ * Gestor encargado de la lógica de negocio para la entidad "Usuario".
+ * Proporciona métodos para la creación, edición, eliminación y obtención de usuarios.
+ *
+ * Esta clase cumple con el Principio de Responsabilidad Única (SRP) al centrarse
+ * únicamente en la gestión de usuarios. También implementa el Principio de
+ * Inversión de Dependencias (DIP) al depender de la abstracción IStorage
+ * en lugar de una implementación concreta, lo que facilita la sustitución del
+ * método de almacenamiento.
+ */
 package Management;
 
 import Model.User;

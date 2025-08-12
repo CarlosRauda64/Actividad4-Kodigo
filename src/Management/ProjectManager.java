@@ -1,3 +1,13 @@
+/**
+ * Gestor que maneja la lógica de negocio para la entidad "Proyecto".
+ * Proporciona funcionalidades para crear proyectos, asignarles un líder,
+ * y gestionar la relación entre proyectos y tareas.
+ *
+ * Esta clase cumple con el Principio de Responsabilidad Única (SRP) al
+ * tener la única responsabilidad de gestionar proyectos. Su dependencia de
+ * la interfaz IStorage es una aplicación directa del Principio de Inversión de Dependencias (DIP),
+ * lo que permite una mayor flexibilidad y modularidad en la arquitectura.
+ */
 package Management;
 
 import Model.Project;

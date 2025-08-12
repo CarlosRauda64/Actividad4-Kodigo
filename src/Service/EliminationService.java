@@ -1,3 +1,15 @@
+/**
+ * Servicio encargado de gestionar las operaciones de eliminación en cascada de las entidades.
+ * Su propósito es coordinar la eliminación de un usuario, tarea o proyecto de forma segura,
+ * asegurando que todas las referencias a la entidad eliminada se actualicen correctamente
+ * en otras partes del sistema para mantener la integridad de los datos.
+ *
+ * Esta clase es fundamental para la arquitectura del proyecto, ya que cumple con el Principio
+ * de Inversión de Dependencias (DIP). Al centralizar la lógica de eliminación, evita que
+ * los gestores (Managers) tengan dependencias circulares entre sí, lo que mantiene el código
+ * modular y desacoplado. También se adhiere al Principio de Responsabilidad Única (SRP),
+ * ya que su única función es la de coordinar el proceso de eliminación.
+ */
 package Service;
 
 import Management.ProjectManager;

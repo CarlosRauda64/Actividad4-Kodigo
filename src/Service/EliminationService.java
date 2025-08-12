@@ -15,13 +15,23 @@ public class EliminationService {
     private final ProjectManager projectManager;
     private final UserManager userManager;
 
+    /**
+     * Constructor para inicializar el servicio de eliminación.
+     * @param taskManager El gestor de tareas.
+     * @param projectManager El gestor de proyectos.
+     * @param userManager El gestor de usuarios.
+     */
     public EliminationService(TaskManager taskManager, ProjectManager projectManager, UserManager userManager) {
         this.taskManager = taskManager;
         this.projectManager = projectManager;
         this.userManager = userManager;
     }
 
-    // Método para eliminar un usuario de forma segura
+    /**
+     * Elimina un usuario de forma segura y en cascada.
+     * Esta acción desasigna al usuario de todas las tareas y proyectos antes de su eliminación final.
+     * @param user El usuario que se va a eliminar.
+     */
     public void removeUser(User user) {
         // Desasignar al usuario de todas las tareas
         for (Task task : taskManager.getAllTasks()) {
@@ -41,7 +51,11 @@ public class EliminationService {
         userManager.deleteUser(user);
     }
 
-    // Método para eliminar una tarea de forma segura
+    /**
+     * Elimina una tarea de forma segura y en cascada.
+     * Si la tarea está asignada a un proyecto, la remueve de él antes de su eliminación final.
+     * @param task La tarea que se va a eliminar.
+     */
     public void removeTask(Task task) {
         // Si la tarea está en un proyecto, eliminarla de la lista de tareas de ese proyecto
         if (task.getProject() != null) {
@@ -52,7 +66,11 @@ public class EliminationService {
         taskManager.deleteTask(task);
     }
 
-    // Método para eliminar un proyecto de forma segura
+    /**
+     * Elimina un proyecto de forma segura y en cascada.
+     * Esta acción desasigna todas las tareas asociadas al proyecto antes de su eliminación final.
+     * @param project El proyecto que se va a eliminar.
+     */
     public void removeProject(Project project) {
         // Establecer a null la referencia del proyecto en todas las tareas
         List<Task> tasksInProject = new ArrayList<>(project.getTasks());

@@ -1,3 +1,12 @@
+/**
+ * Implementación de la interfaz IStorage para la persistencia de objetos de tipo Task.
+ * Utiliza una lista en memoria para almacenar y gestionar las tareas.
+ *
+ * Esta clase cumple con el Principio de Responsabilidad Única (SRP) al
+ * tener como única función la gestión del almacenamiento de tareas.
+ * Su implementación de la interfaz {@link IStorage} refuerza el Principio de Inversión
+ * de Dependencias (DIP), separando la lógica de negocio de la capa de persistencia.
+ */
 package Storage;
 
 import Model.Task;

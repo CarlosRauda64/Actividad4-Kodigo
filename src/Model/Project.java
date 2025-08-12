@@ -1,3 +1,13 @@
+/**
+ * Clase que representa la entidad "Proyecto".
+ * Incluye un ID único, un título, la referencia al usuario líder y una lista
+ * de las tareas asignadas a este proyecto.
+ *
+ * Esta clase cumple con el Principio de Responsabilidad Única (SRP) al ser
+ * responsable solo de modelar los datos de un proyecto y la relación con
+ * sus tareas. La lógica de negocio para gestionar proyectos se encuentra en
+ * la clase {@link Management.ProjectManager}.
+ */
 package Model;
 
 import java.util.ArrayList;

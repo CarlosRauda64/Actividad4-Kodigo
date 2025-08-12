@@ -1,3 +1,12 @@
+/**
+ * Clase que representa la entidad "Usuario" en el sistema de gestión de proyectos.
+ * Almacena los atributos básicos de un usuario como su ID único, nombre, edad y puesto de trabajo.
+ *
+ * Esta clase cumple con el Principio de Responsabilidad Única (SRP), ya que su
+ * única responsabilidad es modelar los datos del usuario. Toda la lógica de negocio
+ * relacionada con la gestión de usuarios (creación, edición, eliminación) se
+ * maneja en la clase {@link Management.UserManager}.
+ */
 package Model;
 
 public class User implements IUser {
